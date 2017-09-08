@@ -8,8 +8,7 @@ class Config:
     configs of all flask extensions
     being used
     """
-    # flask_wtf configs
-    WTF_CSRF_ENABLED = True  # this protects forms against cross-site forgery
+
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
     # generate a standard secret key and als
     #  Used to securely sign the token
@@ -26,8 +25,8 @@ class Config:
     MAIL_SERVER = 'smtp.googlemail.com'
     MAIL_USE_TLS = True
     MAIL_PORT = 587
-    MAIL_USERNAME = 'emmanuelukwuegbu2016@gmail.com'
-    MAIL_PASSWORD = '@1OBINNN'
+    MAIL_USERNAME = ''
+    MAIL_PASSWORD = ''
     MAIL_DEFAULT_SENDER = 'myapp@app.com'
 
     SECURITY_PASSWORD_SALT = 'password-reset-salt'  # salt used for forgot password
