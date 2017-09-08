@@ -12,7 +12,7 @@ bootstrap = Bootstrap()
 login_manager = LoginManager()
 mail = Mail()
 csrf = SQLAlchemy()
-login_manager.login_view = 'login'
+login_manager.login_view = 'auth.login'
 login_manager.session_protection = 'strong'
 
 
@@ -27,10 +27,8 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.session_protection = 'strong'
 
-    from app.auth.app import app as app_blueprint
-    app.register_blueprint(app_blueprint, url_prefix='/app')
-    from app.auth.web import web as web_blueprint
-    app.register_blueprint(web_blueprint)
+    from app.auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix='/auth')
 
     from app.main import main as main_blueprint
     app.register_blueprint(main_blueprint)
